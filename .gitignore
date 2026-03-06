@@ -1,0 +1,9 @@
+#Vivado
+*.jou
+*.log
+*.str
+/fpga/vivado/
+
+
+#Py
+*.venv
