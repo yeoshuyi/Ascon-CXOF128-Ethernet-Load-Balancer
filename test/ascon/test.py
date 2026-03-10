@@ -1,0 +1,1 @@
+from ascon.ascon import ascon_permutation
