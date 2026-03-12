@@ -1,0 +1,328 @@
+rm -f results.xml
+"make" -f Makefile results.xml
+make[1]: Entering directory '/home/shu/Documents/Ascon/test/ascon'
+/home/shu/Documents/Ascon/.venv/lib/python3.12/site-packages/cocotb_tools/makefiles/simulators/Makefile.icarus:66: Using MODULE is deprecated, please use COCOTB_TEST_MODULES instead.
+rm -f results.xml
+COCOTB_TEST_MODULES=verify COCOTB_TESTCASE= COCOTB_TEST_FILTER= COCOTB_TOPLEVEL=ascon_permute TOPLEVEL_LANG=verilog \
+         /usr/bin/vvp -M /home/shu/Documents/Ascon/.venv/lib/python3.12/site-packages/cocotb/libs -m libcocotbvpi_icarus   sim_build/sim.vvp -fst  
+     -.--ns INFO     gpi                                ..mbed/gpi_embed.cpp:93   in _embed_init_python              Using Python 3.12.4 interpreter at /home/shu/Documents/Ascon/.venv/bin/python3
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:79   in gpi_print_registered_impl       VPI registered
+     0.00ns INFO     cocotb                             Running on Icarus Verilog version 12.0 (stable)
+     0.00ns INFO     cocotb                             Seeding Python random module with 1773309094
+     0.00ns INFO     cocotb                             Initialized cocotb v2.0.1 from /home/shu/Documents/Ascon/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns DEBUG    cocotb.regression                  Registered test 'verify.ascon_test'
+     0.00ns INFO     cocotb                             Running tests
+     0.00ns INFO     cocotb.regression                  running verify.ascon_test (1/1)
+    18.60ns WARNING  py.warnings                        /home/shu/Documents/Ascon/test/ascon/verify.py:76: DeprecationWarning: `logic_array.integer` getter is deprecated. Use `logic_array.to_unsigned()` instead.
+                                                          actual = dut.state_out.value.integer
+    18.60ns INFO     cocotb.ascon_permute               Checking Permutation #000
+    18.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xc7f8b1e3b53463671bf9d6ee57eb44f1f351dd68524421b530925e9958b6d41fea2a0171d185466b
+    18.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xc7f8b1e3b53463671bf9d6ee57eb44f1f351dd68524421b530925e9958b6d41fea2a0171d185466b
+    21.70ns INFO     cocotb.ascon_permute               Checking Permutation #001
+    21.70ns DEBUG    cocotb.ascon_permute                 Expected: 0xaddc214707b2265d5b7aadd82b4091396e9d10084ad6e96d20480d9f8d6beaa142065d1c3141f51d
+    21.70ns DEBUG    cocotb.ascon_permute                 Actual:   0xaddc214707b2265d5b7aadd82b4091396e9d10084ad6e96d20480d9f8d6beaa142065d1c3141f51d
+    24.80ns INFO     cocotb.ascon_permute               Checking Permutation #002
+    24.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xc12d22d9d1a2a49414c36db3bd86e8101912713405d1d767b894ca35d2f9950869b0219bf151c565
+    24.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xc12d22d9d1a2a49414c36db3bd86e8101912713405d1d767b894ca35d2f9950869b0219bf151c565
+    27.90ns INFO     cocotb.ascon_permute               Checking Permutation #003
+    27.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x106c878cd6db9f51fe2ace156b036328a81344c816a7058ebac3c9818ccbb0b55631e8880de68cbf
+    27.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x106c878cd6db9f51fe2ace156b036328a81344c816a7058ebac3c9818ccbb0b55631e8880de68cbf
+    31.00ns INFO     cocotb.ascon_permute               Checking Permutation #004
+    31.00ns DEBUG    cocotb.ascon_permute                 Expected: 0x95145b34e4e2e908c248cbad5f7617f703b4aa801ee3a69d9680d3c581d812e359e342d2c952a7e3
+    31.00ns DEBUG    cocotb.ascon_permute                 Actual:   0x95145b34e4e2e908c248cbad5f7617f703b4aa801ee3a69d9680d3c581d812e359e342d2c952a7e3
+    34.10ns INFO     cocotb.ascon_permute               Checking Permutation #005
+    34.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xf1526fe7fc87cc068ac33c4d785a8ee696974cca64ccfe150b55bbdfb03cc9de936b097bd2b45f07
+    34.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xf1526fe7fc87cc068ac33c4d785a8ee696974cca64ccfe150b55bbdfb03cc9de936b097bd2b45f07
+    37.20ns INFO     cocotb.ascon_permute               Checking Permutation #006
+    37.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x7211bd22cd7c8c603c632f44a2095ec32b3446a595b7c0f5584079b046e0c2769c7c9013a103615
+    37.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x7211bd22cd7c8c603c632f44a2095ec32b3446a595b7c0f5584079b046e0c2769c7c9013a103615
+    40.30ns INFO     cocotb.ascon_permute               Checking Permutation #007
+    40.30ns DEBUG    cocotb.ascon_permute                 Expected: 0xd62ac7a05303267fb289aa40058a7c53dc62aaeb8563f04ef05ec469d96b9d17ea6c019582779d95
+    40.30ns DEBUG    cocotb.ascon_permute                 Actual:   0xd62ac7a05303267fb289aa40058a7c53dc62aaeb8563f04ef05ec469d96b9d17ea6c019582779d95
+    43.40ns INFO     cocotb.ascon_permute               Checking Permutation #008
+    43.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x505b2b1fdbdedf582aed4fe1eb34db3f40fdc2a3d1d37080c4fb81f249331475870ba34e0d982f71
+    43.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x505b2b1fdbdedf582aed4fe1eb34db3f40fdc2a3d1d37080c4fb81f249331475870ba34e0d982f71
+    46.50ns INFO     cocotb.ascon_permute               Checking Permutation #009
+    46.50ns DEBUG    cocotb.ascon_permute                 Expected: 0xddc14e785d5f78c07960af101a95868cf9d2877add3813f902f1742a84e353eecef65d9a51b38180
+    46.50ns DEBUG    cocotb.ascon_permute                 Actual:   0xddc14e785d5f78c07960af101a95868cf9d2877add3813f902f1742a84e353eecef65d9a51b38180
+    49.60ns INFO     cocotb.ascon_permute               Checking Permutation #010
+    49.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xe16102e0ab74979a4367aafc9d4dba9edff65b32c8e2372dbaffb4517e913ecbe1c028d8c55140d4
+    49.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xe16102e0ab74979a4367aafc9d4dba9edff65b32c8e2372dbaffb4517e913ecbe1c028d8c55140d4
+    52.70ns INFO     cocotb.ascon_permute               Checking Permutation #011
+    52.70ns DEBUG    cocotb.ascon_permute                 Expected: 0xe8bf9f9ab228bfe196a27faad565d6a7a78a176884ce3bc00c63a4348edfd86c4d7b6adc4dd3e7ae
+    52.70ns DEBUG    cocotb.ascon_permute                 Actual:   0xe8bf9f9ab228bfe196a27faad565d6a7a78a176884ce3bc00c63a4348edfd86c4d7b6adc4dd3e7ae
+    55.80ns INFO     cocotb.ascon_permute               Checking Permutation #012
+    55.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xa1caf4f3bf96fa2be2cfd69f153c389479325893a6712cef331eb9dd003911be3df31c55e254105e
+    55.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xa1caf4f3bf96fa2be2cfd69f153c389479325893a6712cef331eb9dd003911be3df31c55e254105e
+    58.90ns INFO     cocotb.ascon_permute               Checking Permutation #013
+    58.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x7f552bdc9ba9dce91578940b9dbccd98333fcdc58333673385374b3f2eb450a5f5d62cdfc41e5375
+    58.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x7f552bdc9ba9dce91578940b9dbccd98333fcdc58333673385374b3f2eb450a5f5d62cdfc41e5375
+    62.00ns INFO     cocotb.ascon_permute               Checking Permutation #014
+    62.00ns DEBUG    cocotb.ascon_permute                 Expected: 0x6193cfc54285aabcf6f3650b5d64a3c3a76212d6483bc1d252065e2a12371e07740de07129fc1e55
+    62.00ns DEBUG    cocotb.ascon_permute                 Actual:   0x6193cfc54285aabcf6f3650b5d64a3c3a76212d6483bc1d252065e2a12371e07740de07129fc1e55
+    65.10ns INFO     cocotb.ascon_permute               Checking Permutation #015
+    65.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xdcd658f48bbf6d72210bf126915b9c72e14b3919f6e92ee88eae94b00d7bb16b01901eb5dabfac59
+    65.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xdcd658f48bbf6d72210bf126915b9c72e14b3919f6e92ee88eae94b00d7bb16b01901eb5dabfac59
+    68.20ns INFO     cocotb.ascon_permute               Checking Permutation #016
+    68.20ns DEBUG    cocotb.ascon_permute                 Expected: 0xe174ac04d7ec6bb92e1c27c6612afe69553235f61aeeff3da50fe37461d13173c533041dff0e6c1b
+    68.20ns DEBUG    cocotb.ascon_permute                 Actual:   0xe174ac04d7ec6bb92e1c27c6612afe69553235f61aeeff3da50fe37461d13173c533041dff0e6c1b
+    71.30ns INFO     cocotb.ascon_permute               Checking Permutation #017
+    71.30ns DEBUG    cocotb.ascon_permute                 Expected: 0x1b5706de86ec313f5352b067af37e808b0467005c797e3e5750a2c869f53f3f52567e6fa120af612
+    71.30ns DEBUG    cocotb.ascon_permute                 Actual:   0x1b5706de86ec313f5352b067af37e808b0467005c797e3e5750a2c869f53f3f52567e6fa120af612
+    74.40ns INFO     cocotb.ascon_permute               Checking Permutation #018
+    74.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x27abcab2c646849aec07b0b74a43d92c2f8d3b20fe1addb1cc008f94416dded58196e41624f128e2
+    74.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x27abcab2c646849aec07b0b74a43d92c2f8d3b20fe1addb1cc008f94416dded58196e41624f128e2
+    77.50ns INFO     cocotb.ascon_permute               Checking Permutation #019
+    77.50ns DEBUG    cocotb.ascon_permute                 Expected: 0x3f8953ebb74ad9dbd36a7d83ef80d675738fa55636bf0542e2445384a50624c33e44aa7a78d37d0a
+    77.50ns DEBUG    cocotb.ascon_permute                 Actual:   0x3f8953ebb74ad9dbd36a7d83ef80d675738fa55636bf0542e2445384a50624c33e44aa7a78d37d0a
+    80.60ns INFO     cocotb.ascon_permute               Checking Permutation #020
+    80.60ns DEBUG    cocotb.ascon_permute                 Expected: 0x34c837917b4212e8f0ae3212029380420bc8a463d24642c3fbc818aa888671d3d611f9e0512be42
+    80.60ns DEBUG    cocotb.ascon_permute                 Actual:   0x34c837917b4212e8f0ae3212029380420bc8a463d24642c3fbc818aa888671d3d611f9e0512be42
+    83.70ns INFO     cocotb.ascon_permute               Checking Permutation #021
+    83.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x72ad34db22b26d3c1ef907a7f85929fccfbc7866200ef39b16a362c49c8e5f81fb2fd2951f3bfdaa
+    83.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x72ad34db22b26d3c1ef907a7f85929fccfbc7866200ef39b16a362c49c8e5f81fb2fd2951f3bfdaa
+    86.80ns INFO     cocotb.ascon_permute               Checking Permutation #022
+    86.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xc029d810d246954661bce76ac39bb8fbf8231917602db21aa65141770baa17d7a91814d43218ec3
+    86.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xc029d810d246954661bce76ac39bb8fbf8231917602db21aa65141770baa17d7a91814d43218ec3
+    89.90ns INFO     cocotb.ascon_permute               Checking Permutation #023
+    89.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x1a48c5f292895da4da271f85d77be9bb2aea7dbaa17b8420c06a350a3b6ca872772165d369adaf17
+    89.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x1a48c5f292895da4da271f85d77be9bb2aea7dbaa17b8420c06a350a3b6ca872772165d369adaf17
+    93.00ns INFO     cocotb.ascon_permute               Checking Permutation #024
+    93.00ns DEBUG    cocotb.ascon_permute                 Expected: 0x89dc1980e5bbdc0405e1ab323d45b667b26545f6bd81d3233a0e03319a64ff95e948f210e066f9d0
+    93.00ns DEBUG    cocotb.ascon_permute                 Actual:   0x89dc1980e5bbdc0405e1ab323d45b667b26545f6bd81d3233a0e03319a64ff95e948f210e066f9d0
+    96.10ns INFO     cocotb.ascon_permute               Checking Permutation #025
+    96.10ns DEBUG    cocotb.ascon_permute                 Expected: 0x6a674103d9003dc7d9e7405d551cf8b3cfec3698d979297c6f0e0c5be8423b3a05fe771243e934b7
+    96.10ns DEBUG    cocotb.ascon_permute                 Actual:   0x6a674103d9003dc7d9e7405d551cf8b3cfec3698d979297c6f0e0c5be8423b3a05fe771243e934b7
+    99.20ns INFO     cocotb.ascon_permute               Checking Permutation #026
+    99.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x5c3f339525445d0d5514c539d18c2ddc2ea0105b6760ef18c237c5691d278f6ed06d106c52a6ba67
+    99.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x5c3f339525445d0d5514c539d18c2ddc2ea0105b6760ef18c237c5691d278f6ed06d106c52a6ba67
+   102.30ns INFO     cocotb.ascon_permute               Checking Permutation #027
+   102.30ns DEBUG    cocotb.ascon_permute                 Expected: 0xfbb2fc0bbf22dc3c9a531c9a1335cec7224af8484e1a773a805ec211a4a12ec2242e5d09287cbfbe
+   102.30ns DEBUG    cocotb.ascon_permute                 Actual:   0xfbb2fc0bbf22dc3c9a531c9a1335cec7224af8484e1a773a805ec211a4a12ec2242e5d09287cbfbe
+   105.40ns INFO     cocotb.ascon_permute               Checking Permutation #028
+   105.40ns DEBUG    cocotb.ascon_permute                 Expected: 0xa1f8ec00966ac27fc58d591d8fe2de7855c3d312b36d50333cd61d57e68b636e072d855825ea6b97
+   105.40ns DEBUG    cocotb.ascon_permute                 Actual:   0xa1f8ec00966ac27fc58d591d8fe2de7855c3d312b36d50333cd61d57e68b636e072d855825ea6b97
+   108.50ns INFO     cocotb.ascon_permute               Checking Permutation #029
+   108.50ns DEBUG    cocotb.ascon_permute                 Expected: 0xef69a092a77dc1411dc2730cc697b0443769e6219a7e970a57abf784825c7a122ddc7a118d451a7e
+   108.50ns DEBUG    cocotb.ascon_permute                 Actual:   0xef69a092a77dc1411dc2730cc697b0443769e6219a7e970a57abf784825c7a122ddc7a118d451a7e
+   111.60ns INFO     cocotb.ascon_permute               Checking Permutation #030
+   111.60ns DEBUG    cocotb.ascon_permute                 Expected: 0x4dffdabcb5f3a2c5b14ac7c7b2461b3d9b50ce169a4a24b3150eebeeaed70d7ade4987bdf136f482
+   111.60ns DEBUG    cocotb.ascon_permute                 Actual:   0x4dffdabcb5f3a2c5b14ac7c7b2461b3d9b50ce169a4a24b3150eebeeaed70d7ade4987bdf136f482
+   114.70ns INFO     cocotb.ascon_permute               Checking Permutation #031
+   114.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x29225e3e0a42583a68e673ada011cd56a64a37cca6efc690bc1032d7dde496585d5546930a0c1f56
+   114.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x29225e3e0a42583a68e673ada011cd56a64a37cca6efc690bc1032d7dde496585d5546930a0c1f56
+   117.80ns INFO     cocotb.ascon_permute               Checking Permutation #032
+   117.80ns DEBUG    cocotb.ascon_permute                 Expected: 0x8878a3e37041f3311f136f4d57f9a2ba979409e3e953305b10d0dea4f5ca7f9ceac772b1cb39c821
+   117.80ns DEBUG    cocotb.ascon_permute                 Actual:   0x8878a3e37041f3311f136f4d57f9a2ba979409e3e953305b10d0dea4f5ca7f9ceac772b1cb39c821
+   120.90ns INFO     cocotb.ascon_permute               Checking Permutation #033
+   120.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x4579e48e1fb23f6b338633fde14f2398084616055c734a78b44baecf6faf04508753039d2d9a148e
+   120.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x4579e48e1fb23f6b338633fde14f2398084616055c734a78b44baecf6faf04508753039d2d9a148e
+   124.00ns INFO     cocotb.ascon_permute               Checking Permutation #034
+   124.00ns DEBUG    cocotb.ascon_permute                 Expected: 0xc76c8eea40a02e39710a3413076aa8305fd034123977dcc7c89cca428a72a8e4a12c866d3a87dbb1
+   124.00ns DEBUG    cocotb.ascon_permute                 Actual:   0xc76c8eea40a02e39710a3413076aa8305fd034123977dcc7c89cca428a72a8e4a12c866d3a87dbb1
+   127.10ns INFO     cocotb.ascon_permute               Checking Permutation #035
+   127.10ns DEBUG    cocotb.ascon_permute                 Expected: 0x3d89d65ef9aa24ecbf8ef38388071a11e3531add7d3689d275433f6fd79a8974b2c1022cff2e5afa
+   127.10ns DEBUG    cocotb.ascon_permute                 Actual:   0x3d89d65ef9aa24ecbf8ef38388071a11e3531add7d3689d275433f6fd79a8974b2c1022cff2e5afa
+   130.20ns INFO     cocotb.ascon_permute               Checking Permutation #036
+   130.20ns DEBUG    cocotb.ascon_permute                 Expected: 0xbe05c04639360c0a8c26aecd7a8da92e431871e9b3ab4fe8f7a4d27cfd9508b0486b4825275e3c48
+   130.20ns DEBUG    cocotb.ascon_permute                 Actual:   0xbe05c04639360c0a8c26aecd7a8da92e431871e9b3ab4fe8f7a4d27cfd9508b0486b4825275e3c48
+   133.30ns INFO     cocotb.ascon_permute               Checking Permutation #037
+   133.30ns DEBUG    cocotb.ascon_permute                 Expected: 0x46e0bdb4523970d6a709676c823f6d3891baeb0817cb63cb6e1e7d24922334b7f18ef27ea9326ce2
+   133.30ns DEBUG    cocotb.ascon_permute                 Actual:   0x46e0bdb4523970d6a709676c823f6d3891baeb0817cb63cb6e1e7d24922334b7f18ef27ea9326ce2
+   136.40ns INFO     cocotb.ascon_permute               Checking Permutation #038
+   136.40ns DEBUG    cocotb.ascon_permute                 Expected: 0xe47b77038b9623239d7283361e811d857216b428e44e69ca2d1192cb34ca539fa8e2d0d5c8ca9cc2
+   136.40ns DEBUG    cocotb.ascon_permute                 Actual:   0xe47b77038b9623239d7283361e811d857216b428e44e69ca2d1192cb34ca539fa8e2d0d5c8ca9cc2
+   139.50ns INFO     cocotb.ascon_permute               Checking Permutation #039
+   139.50ns DEBUG    cocotb.ascon_permute                 Expected: 0xceb7875ecefbf4c89c2199e8b913992d4906df6b93375f799de05ee3c8bac35dfb61549bc28993e4
+   139.50ns DEBUG    cocotb.ascon_permute                 Actual:   0xceb7875ecefbf4c89c2199e8b913992d4906df6b93375f799de05ee3c8bac35dfb61549bc28993e4
+   142.60ns INFO     cocotb.ascon_permute               Checking Permutation #040
+   142.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xd4b6700e73ed2db3fe667188494278fe6ebcfd06d31cc29e43ea0a7fadb7c9d929d9d8acfbac2469
+   142.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xd4b6700e73ed2db3fe667188494278fe6ebcfd06d31cc29e43ea0a7fadb7c9d929d9d8acfbac2469
+   145.70ns INFO     cocotb.ascon_permute               Checking Permutation #041
+   145.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x71537bd896855bfb6691106cc970359d0eb5dca01dc788356691b8a77501310082e4f8bfe0ee5fef
+   145.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x71537bd896855bfb6691106cc970359d0eb5dca01dc788356691b8a77501310082e4f8bfe0ee5fef
+   148.80ns INFO     cocotb.ascon_permute               Checking Permutation #042
+   148.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xcf99884eda8f649731754c03ad58c8ad80d8d6d6e8d8892ceb115ab2a779da786eb6e46090c2fb28
+   148.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xcf99884eda8f649731754c03ad58c8ad80d8d6d6e8d8892ceb115ab2a779da786eb6e46090c2fb28
+   151.90ns INFO     cocotb.ascon_permute               Checking Permutation #043
+   151.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x482557cdbb36189126e66dc78d7bff6b412a20fc1bd056da10244bf63ad7dd7be791177000060524
+   151.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x482557cdbb36189126e66dc78d7bff6b412a20fc1bd056da10244bf63ad7dd7be791177000060524
+   155.00ns INFO     cocotb.ascon_permute               Checking Permutation #044
+   155.00ns DEBUG    cocotb.ascon_permute                 Expected: 0xfbc5f2e082388c810950ada4157e463c08ca0df758756a532262c04f2e60fb12fb5bc94405d31378
+   155.00ns DEBUG    cocotb.ascon_permute                 Actual:   0xfbc5f2e082388c810950ada4157e463c08ca0df758756a532262c04f2e60fb12fb5bc94405d31378
+   158.10ns INFO     cocotb.ascon_permute               Checking Permutation #045
+   158.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xf4c2bf8c7986580295a13512fe98e4f46dde2fa4773b542723f449a26204092552b861041c9c5800
+   158.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xf4c2bf8c7986580295a13512fe98e4f46dde2fa4773b542723f449a26204092552b861041c9c5800
+   161.20ns INFO     cocotb.ascon_permute               Checking Permutation #046
+   161.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x68e956bc0acaaa2f69a8174a321d8a261b59a59578d14dc8f5248686ba77f7ee1133f628f51d3b8e
+   161.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x68e956bc0acaaa2f69a8174a321d8a261b59a59578d14dc8f5248686ba77f7ee1133f628f51d3b8e
+   164.30ns INFO     cocotb.ascon_permute               Checking Permutation #047
+   164.30ns DEBUG    cocotb.ascon_permute                 Expected: 0xd54751d60ff4b84a20446ec13b1d46fded8ad0070a506b92a83239ecab1698dbee65f3a292a11dca
+   164.30ns DEBUG    cocotb.ascon_permute                 Actual:   0xd54751d60ff4b84a20446ec13b1d46fded8ad0070a506b92a83239ecab1698dbee65f3a292a11dca
+   167.40ns INFO     cocotb.ascon_permute               Checking Permutation #048
+   167.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x9d1b565087934f892f0884231844ae6b54d39dcc82e4ef0fad1f461dba82ab235cc24396820e6137
+   167.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x9d1b565087934f892f0884231844ae6b54d39dcc82e4ef0fad1f461dba82ab235cc24396820e6137
+   170.50ns INFO     cocotb.ascon_permute               Checking Permutation #049
+   170.50ns DEBUG    cocotb.ascon_permute                 Expected: 0x5c94919f1334a826175dbf6709fdd81891ce8e42c8b48c383b825a81477fea0a36ed3c1a71ea0b0c
+   170.50ns DEBUG    cocotb.ascon_permute                 Actual:   0x5c94919f1334a826175dbf6709fdd81891ce8e42c8b48c383b825a81477fea0a36ed3c1a71ea0b0c
+   173.60ns INFO     cocotb.ascon_permute               Checking Permutation #050
+   173.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xf9d85241cdea6dbfc870d4e1158dd3bac36edef0aa1b152c10590499a119d7daa3c5a7c7b278c7c0
+   173.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xf9d85241cdea6dbfc870d4e1158dd3bac36edef0aa1b152c10590499a119d7daa3c5a7c7b278c7c0
+   176.70ns INFO     cocotb.ascon_permute               Checking Permutation #051
+   176.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x9a760096e1b2bfefcc268854e93c8ee0b43c39f09ff3bf1e67d788dba243c9108d48eea40292d22
+   176.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x9a760096e1b2bfefcc268854e93c8ee0b43c39f09ff3bf1e67d788dba243c9108d48eea40292d22
+   179.80ns INFO     cocotb.ascon_permute               Checking Permutation #052
+   179.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xc8a3baf0333bd567e5e6ea78425c258fc435128b860ee822df5354a533d076d8814622b44fff99ac
+   179.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xc8a3baf0333bd567e5e6ea78425c258fc435128b860ee822df5354a533d076d8814622b44fff99ac
+   182.90ns INFO     cocotb.ascon_permute               Checking Permutation #053
+   182.90ns DEBUG    cocotb.ascon_permute                 Expected: 0xa6999deb9716d2ed8ec1c2a841b1fe0f4005ce8885cadb570528849762d3ffa93b7467b73ce5d437
+   182.90ns DEBUG    cocotb.ascon_permute                 Actual:   0xa6999deb9716d2ed8ec1c2a841b1fe0f4005ce8885cadb570528849762d3ffa93b7467b73ce5d437
+   186.00ns INFO     cocotb.ascon_permute               Checking Permutation #054
+   186.00ns DEBUG    cocotb.ascon_permute                 Expected: 0xd5b0ac657c9b97b7200236f50507f46d140128232cb9a95c58e55646ab518149e7f9f2dbf2dc8774
+   186.00ns DEBUG    cocotb.ascon_permute                 Actual:   0xd5b0ac657c9b97b7200236f50507f46d140128232cb9a95c58e55646ab518149e7f9f2dbf2dc8774
+   189.10ns INFO     cocotb.ascon_permute               Checking Permutation #055
+   189.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xd219328f5ec7cac8ad9310968c00e5706e6e1e883e3cf6a264e45c5157480c497cab011042155750
+   189.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xd219328f5ec7cac8ad9310968c00e5706e6e1e883e3cf6a264e45c5157480c497cab011042155750
+   192.20ns INFO     cocotb.ascon_permute               Checking Permutation #056
+   192.20ns DEBUG    cocotb.ascon_permute                 Expected: 0xb62f3e7a57993ee3beacf7ead4ab37d740a24beb48ba361c4d4a9b5ba237c1cd972439573495779d
+   192.20ns DEBUG    cocotb.ascon_permute                 Actual:   0xb62f3e7a57993ee3beacf7ead4ab37d740a24beb48ba361c4d4a9b5ba237c1cd972439573495779d
+   195.30ns INFO     cocotb.ascon_permute               Checking Permutation #057
+   195.30ns DEBUG    cocotb.ascon_permute                 Expected: 0x6e864d096e4219b78618c119bbc6d5be07ebab9ce4bc6bcec035de25cf9233281cf5d4e37bc2eb29
+   195.30ns DEBUG    cocotb.ascon_permute                 Actual:   0x6e864d096e4219b78618c119bbc6d5be07ebab9ce4bc6bcec035de25cf9233281cf5d4e37bc2eb29
+   198.40ns INFO     cocotb.ascon_permute               Checking Permutation #058
+   198.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x5e8d49d045f0898ca9f9b8c69f43633ea02ac57aedcd3da5fcff704d6f4e10c6e2f7ae24c1914597
+   198.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x5e8d49d045f0898ca9f9b8c69f43633ea02ac57aedcd3da5fcff704d6f4e10c6e2f7ae24c1914597
+   201.50ns INFO     cocotb.ascon_permute               Checking Permutation #059
+   201.50ns DEBUG    cocotb.ascon_permute                 Expected: 0x3c073bdde1e39ae15d5591cfb2ed8526daa7b2436e31567e3a975362618c72f16613e29a9d47ae87
+   201.50ns DEBUG    cocotb.ascon_permute                 Actual:   0x3c073bdde1e39ae15d5591cfb2ed8526daa7b2436e31567e3a975362618c72f16613e29a9d47ae87
+   204.60ns INFO     cocotb.ascon_permute               Checking Permutation #060
+   204.60ns DEBUG    cocotb.ascon_permute                 Expected: 0x3edb04735ea4c70c8230a472236a23d83ae7c3393bfb055116ee6832186dfb19bfb13a1bf3fe082
+   204.60ns DEBUG    cocotb.ascon_permute                 Actual:   0x3edb04735ea4c70c8230a472236a23d83ae7c3393bfb055116ee6832186dfb19bfb13a1bf3fe082
+   207.70ns INFO     cocotb.ascon_permute               Checking Permutation #061
+   207.70ns DEBUG    cocotb.ascon_permute                 Expected: 0xc4c19ee72165eaeb467120e297887a7ce0c06829bb0ff151d81f0945a37344805974297dc60ba238
+   207.70ns DEBUG    cocotb.ascon_permute                 Actual:   0xc4c19ee72165eaeb467120e297887a7ce0c06829bb0ff151d81f0945a37344805974297dc60ba238
+   210.80ns INFO     cocotb.ascon_permute               Checking Permutation #062
+   210.80ns DEBUG    cocotb.ascon_permute                 Expected: 0x9b3197ad7d27442815e148da33eea1f6419e001b3e348414a2a19556b485ef78bdd9be4c5917fb27
+   210.80ns DEBUG    cocotb.ascon_permute                 Actual:   0x9b3197ad7d27442815e148da33eea1f6419e001b3e348414a2a19556b485ef78bdd9be4c5917fb27
+   213.90ns INFO     cocotb.ascon_permute               Checking Permutation #063
+   213.90ns DEBUG    cocotb.ascon_permute                 Expected: 0xc202d45ad9e79a6cc4f941ea316578206a71bfd8f37d31c8bc98a0af5e5d53da76a9e2d9dd7f5c29
+   213.90ns DEBUG    cocotb.ascon_permute                 Actual:   0xc202d45ad9e79a6cc4f941ea316578206a71bfd8f37d31c8bc98a0af5e5d53da76a9e2d9dd7f5c29
+   217.00ns INFO     cocotb.ascon_permute               Checking Permutation #064
+   217.00ns DEBUG    cocotb.ascon_permute                 Expected: 0xf3862b728151a439143a499d14f8cc8f44e964fe30ec14ea45e175cf430e32536461c52b4cf16270
+   217.00ns DEBUG    cocotb.ascon_permute                 Actual:   0xf3862b728151a439143a499d14f8cc8f44e964fe30ec14ea45e175cf430e32536461c52b4cf16270
+   220.10ns INFO     cocotb.ascon_permute               Checking Permutation #065
+   220.10ns DEBUG    cocotb.ascon_permute                 Expected: 0x40503089070f1c0c0d94ac5485db88f8122e8e0b1b0f5324b9015ed2d5f192e563e8fa231d1ae7b4
+   220.10ns DEBUG    cocotb.ascon_permute                 Actual:   0x40503089070f1c0c0d94ac5485db88f8122e8e0b1b0f5324b9015ed2d5f192e563e8fa231d1ae7b4
+   223.20ns INFO     cocotb.ascon_permute               Checking Permutation #066
+   223.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x819ae02dc73f88f126f48347cab3847a346225fdcd8f1ef683b951ff9be6d62ded27c2bdf480ae
+   223.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x819ae02dc73f88f126f48347cab3847a346225fdcd8f1ef683b951ff9be6d62ded27c2bdf480ae
+   226.30ns INFO     cocotb.ascon_permute               Checking Permutation #067
+   226.30ns DEBUG    cocotb.ascon_permute                 Expected: 0x19c1fe212ded425d70967aff7ad0e2537c5eb5a4a76d9b776951c63a346e096654bce6c3121a091
+   226.30ns DEBUG    cocotb.ascon_permute                 Actual:   0x19c1fe212ded425d70967aff7ad0e2537c5eb5a4a76d9b776951c63a346e096654bce6c3121a091
+   229.40ns INFO     cocotb.ascon_permute               Checking Permutation #068
+   229.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x6c1d500610a297ed7553b8de4aa4838bd841935a67beb7325eabb598d3c814815a2cda21389f446f
+   229.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x6c1d500610a297ed7553b8de4aa4838bd841935a67beb7325eabb598d3c814815a2cda21389f446f
+   232.50ns INFO     cocotb.ascon_permute               Checking Permutation #069
+   232.50ns DEBUG    cocotb.ascon_permute                 Expected: 0xdd161c8c3db53203eaacab51437f278288ab159b8b10d68d7aa3a9aab3c999703f16a56ffeec32f7
+   232.50ns DEBUG    cocotb.ascon_permute                 Actual:   0xdd161c8c3db53203eaacab51437f278288ab159b8b10d68d7aa3a9aab3c999703f16a56ffeec32f7
+   235.60ns INFO     cocotb.ascon_permute               Checking Permutation #070
+   235.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xba7475854e51dcf68a31af2633cd0e92ad9d6b71fb4546f8f8a5c293be251bd7e11ccbcd86d3bf58
+   235.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xba7475854e51dcf68a31af2633cd0e92ad9d6b71fb4546f8f8a5c293be251bd7e11ccbcd86d3bf58
+   238.70ns INFO     cocotb.ascon_permute               Checking Permutation #071
+   238.70ns DEBUG    cocotb.ascon_permute                 Expected: 0xf8798da3c468e50e19e599725afc6699708c0d0e457dd5417b1fc1e93142a9b9848abb5b8d230024
+   238.70ns DEBUG    cocotb.ascon_permute                 Actual:   0xf8798da3c468e50e19e599725afc6699708c0d0e457dd5417b1fc1e93142a9b9848abb5b8d230024
+   241.80ns INFO     cocotb.ascon_permute               Checking Permutation #072
+   241.80ns DEBUG    cocotb.ascon_permute                 Expected: 0x751e4792340bc8e35450211438b0d9c67dcefe9a56003cddf628bb678c10090ee5dbb83e141aa24e
+   241.80ns DEBUG    cocotb.ascon_permute                 Actual:   0x751e4792340bc8e35450211438b0d9c67dcefe9a56003cddf628bb678c10090ee5dbb83e141aa24e
+   244.90ns INFO     cocotb.ascon_permute               Checking Permutation #073
+   244.90ns DEBUG    cocotb.ascon_permute                 Expected: 0xbdf10eea542ce53ae74f22454c292a27952113de2a0a4b276cb1f427df68addcec90a2ab3d67f544
+   244.90ns DEBUG    cocotb.ascon_permute                 Actual:   0xbdf10eea542ce53ae74f22454c292a27952113de2a0a4b276cb1f427df68addcec90a2ab3d67f544
+   248.00ns INFO     cocotb.ascon_permute               Checking Permutation #074
+   248.00ns DEBUG    cocotb.ascon_permute                 Expected: 0xb7c3cda90965566cb9ec880d3146e24bc53c99769df8ebb6f0b60e29bf8b2b823f342a90aeed2ba6
+   248.00ns DEBUG    cocotb.ascon_permute                 Actual:   0xb7c3cda90965566cb9ec880d3146e24bc53c99769df8ebb6f0b60e29bf8b2b823f342a90aeed2ba6
+   251.10ns INFO     cocotb.ascon_permute               Checking Permutation #075
+   251.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xc8034c47cdf6d5e5eab204339438339ae79d2fcb0eec46cf962f17afa6f35d87a4d450943079e1d
+   251.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xc8034c47cdf6d5e5eab204339438339ae79d2fcb0eec46cf962f17afa6f35d87a4d450943079e1d
+   254.20ns INFO     cocotb.ascon_permute               Checking Permutation #076
+   254.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x36b6a2ab3304da48a90c02f050f5525f502c2a425204cd823cc281752fe3f36aa2fd354a77bbadce
+   254.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x36b6a2ab3304da48a90c02f050f5525f502c2a425204cd823cc281752fe3f36aa2fd354a77bbadce
+   257.30ns INFO     cocotb.ascon_permute               Checking Permutation #077
+   257.30ns DEBUG    cocotb.ascon_permute                 Expected: 0x3d082472aeb32ae7fe51416effde911fcba739b792abff88c39c309d21d99a71c7aa3a3222124429
+   257.30ns DEBUG    cocotb.ascon_permute                 Actual:   0x3d082472aeb32ae7fe51416effde911fcba739b792abff88c39c309d21d99a71c7aa3a3222124429
+   260.40ns INFO     cocotb.ascon_permute               Checking Permutation #078
+   260.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x8a8b8f0c102d1c89df7d9472a271e4773db24850924d1b68848c77f681428b1d1a1ce3fe38102aa1
+   260.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x8a8b8f0c102d1c89df7d9472a271e4773db24850924d1b68848c77f681428b1d1a1ce3fe38102aa1
+   263.50ns INFO     cocotb.ascon_permute               Checking Permutation #079
+   263.50ns DEBUG    cocotb.ascon_permute                 Expected: 0x2bfcb253bde6c22b23203210505eeea459fea708f1f9ce27ee48e09079e1b498ed1dae8549b41c75
+   263.50ns DEBUG    cocotb.ascon_permute                 Actual:   0x2bfcb253bde6c22b23203210505eeea459fea708f1f9ce27ee48e09079e1b498ed1dae8549b41c75
+   266.60ns INFO     cocotb.ascon_permute               Checking Permutation #080
+   266.60ns DEBUG    cocotb.ascon_permute                 Expected: 0xf7c9055956389c23be115755f458c89e9a08ce4c6eb5a95c246b2834ae8132065b27e3505644863f
+   266.60ns DEBUG    cocotb.ascon_permute                 Actual:   0xf7c9055956389c23be115755f458c89e9a08ce4c6eb5a95c246b2834ae8132065b27e3505644863f
+   269.70ns INFO     cocotb.ascon_permute               Checking Permutation #081
+   269.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x89ff68ff0c06ded0f4548cb88980e45b3a9279d78b6fef741fdebea511311225e56118852c763068
+   269.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x89ff68ff0c06ded0f4548cb88980e45b3a9279d78b6fef741fdebea511311225e56118852c763068
+   272.80ns INFO     cocotb.ascon_permute               Checking Permutation #082
+   272.80ns DEBUG    cocotb.ascon_permute                 Expected: 0xbef407724690d5020e6b305499a729c9a541637597c1529f7ad280022376ad44e69e924fca2b30a4
+   272.80ns DEBUG    cocotb.ascon_permute                 Actual:   0xbef407724690d5020e6b305499a729c9a541637597c1529f7ad280022376ad44e69e924fca2b30a4
+   275.90ns INFO     cocotb.ascon_permute               Checking Permutation #083
+   275.90ns DEBUG    cocotb.ascon_permute                 Expected: 0xe45a710c004361ac46c5a31306645caf50d2e8a227719c2f0bb8badb2182625d96b2ad9c7585d2cb
+   275.90ns DEBUG    cocotb.ascon_permute                 Actual:   0xe45a710c004361ac46c5a31306645caf50d2e8a227719c2f0bb8badb2182625d96b2ad9c7585d2cb
+   279.00ns INFO     cocotb.ascon_permute               Checking Permutation #084
+   279.00ns DEBUG    cocotb.ascon_permute                 Expected: 0x523e8f2403f97fc93f10af3bda55ae425b30061282dc576330b51a1d62e59a9cc86da84e998584d
+   279.00ns DEBUG    cocotb.ascon_permute                 Actual:   0x523e8f2403f97fc93f10af3bda55ae425b30061282dc576330b51a1d62e59a9cc86da84e998584d
+   282.10ns INFO     cocotb.ascon_permute               Checking Permutation #085
+   282.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xce4fcd804bd07d7bdd6bb36ab019178869d1a877c528dafb46962335598a68f395f2f6cb50ad32f3
+   282.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xce4fcd804bd07d7bdd6bb36ab019178869d1a877c528dafb46962335598a68f395f2f6cb50ad32f3
+   285.20ns INFO     cocotb.ascon_permute               Checking Permutation #086
+   285.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x9a911659dea268ecb8bd3439e0114516285da176aa7290f70a94595ea05956442b716f0954475452
+   285.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x9a911659dea268ecb8bd3439e0114516285da176aa7290f70a94595ea05956442b716f0954475452
+   288.30ns INFO     cocotb.ascon_permute               Checking Permutation #087
+   288.30ns DEBUG    cocotb.ascon_permute                 Expected: 0xe050b00d681a6788565652e40391c18f9da430074f3e64b1585991e3e69a434715fc624915efe2f1
+   288.30ns DEBUG    cocotb.ascon_permute                 Actual:   0xe050b00d681a6788565652e40391c18f9da430074f3e64b1585991e3e69a434715fc624915efe2f1
+   291.40ns INFO     cocotb.ascon_permute               Checking Permutation #088
+   291.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x168226b55133ad79c905a0beb116be6cf8fa820ea3f782ac0255ff6d2339bc7c461e0bbfec8de880
+   291.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x168226b55133ad79c905a0beb116be6cf8fa820ea3f782ac0255ff6d2339bc7c461e0bbfec8de880
+   294.50ns INFO     cocotb.ascon_permute               Checking Permutation #089
+   294.50ns DEBUG    cocotb.ascon_permute                 Expected: 0xf7e1f86dffe990c91f83fd0d6ced6482e5f3d0558e1bba65f8ffae14b8de4b84a1f2b7d0c1755bb9
+   294.50ns DEBUG    cocotb.ascon_permute                 Actual:   0xf7e1f86dffe990c91f83fd0d6ced6482e5f3d0558e1bba65f8ffae14b8de4b84a1f2b7d0c1755bb9
+   297.60ns INFO     cocotb.ascon_permute               Checking Permutation #090
+   297.60ns DEBUG    cocotb.ascon_permute                 Expected: 0x750f42283ff951bbf28aff609b611152648082e3a0ff60501501a073b08e16c90f7be8b0641b0d3
+   297.60ns DEBUG    cocotb.ascon_permute                 Actual:   0x750f42283ff951bbf28aff609b611152648082e3a0ff60501501a073b08e16c90f7be8b0641b0d3
+   300.70ns INFO     cocotb.ascon_permute               Checking Permutation #091
+   300.70ns DEBUG    cocotb.ascon_permute                 Expected: 0x2d4e4978b7fbe35d6dc2dc72dacb5c782c2c1e0cc2b1999109638664ab14a104eaac2ef894c581be
+   300.70ns DEBUG    cocotb.ascon_permute                 Actual:   0x2d4e4978b7fbe35d6dc2dc72dacb5c782c2c1e0cc2b1999109638664ab14a104eaac2ef894c581be
+   303.80ns INFO     cocotb.ascon_permute               Checking Permutation #092
+   303.80ns DEBUG    cocotb.ascon_permute                 Expected: 0x95f22d2152918aa72590669861e21046035e5712a21f846491f2f177325b66c3401411a7a9d765d9
+   303.80ns DEBUG    cocotb.ascon_permute                 Actual:   0x95f22d2152918aa72590669861e21046035e5712a21f846491f2f177325b66c3401411a7a9d765d9
+   306.90ns INFO     cocotb.ascon_permute               Checking Permutation #093
+   306.90ns DEBUG    cocotb.ascon_permute                 Expected: 0x15e681285b91d1a0501da93b47339a05da700bb75f1e546f9bd49b28730278ae2786803ea13c82d6
+   306.90ns DEBUG    cocotb.ascon_permute                 Actual:   0x15e681285b91d1a0501da93b47339a05da700bb75f1e546f9bd49b28730278ae2786803ea13c82d6
+   310.00ns INFO     cocotb.ascon_permute               Checking Permutation #094
+   310.00ns DEBUG    cocotb.ascon_permute                 Expected: 0x9759666a144921f5fe9fccf1c6225d36330ff7ba293a039dbce2a4ca828a797f9cbfb836efe37056
+   310.00ns DEBUG    cocotb.ascon_permute                 Actual:   0x9759666a144921f5fe9fccf1c6225d36330ff7ba293a039dbce2a4ca828a797f9cbfb836efe37056
+   313.10ns INFO     cocotb.ascon_permute               Checking Permutation #095
+   313.10ns DEBUG    cocotb.ascon_permute                 Expected: 0xd6fe2f651c73914eed00f492b050698236bcc6a1562aa4ab3a4de6eb6843ffbcc37f2c39fedfbc44
+   313.10ns DEBUG    cocotb.ascon_permute                 Actual:   0xd6fe2f651c73914eed00f492b050698236bcc6a1562aa4ab3a4de6eb6843ffbcc37f2c39fedfbc44
+   316.20ns INFO     cocotb.ascon_permute               Checking Permutation #096
+   316.20ns DEBUG    cocotb.ascon_permute                 Expected: 0x998c97c329b4c4318a4e4685c6fe3ce42d578fabe9b5cf433dd05fd2f753d823853fcfdcf7fce6c
+   316.20ns DEBUG    cocotb.ascon_permute                 Actual:   0x998c97c329b4c4318a4e4685c6fe3ce42d578fabe9b5cf433dd05fd2f753d823853fcfdcf7fce6c
+   319.30ns INFO     cocotb.ascon_permute               Checking Permutation #097
+   319.30ns DEBUG    cocotb.ascon_permute                 Expected: 0xeff53e2914c89bb1bbb9b8262ab825d944b2d9e48007e4e2e8119d306bca58643da947bb1c73747b
+   319.30ns DEBUG    cocotb.ascon_permute                 Actual:   0xeff53e2914c89bb1bbb9b8262ab825d944b2d9e48007e4e2e8119d306bca58643da947bb1c73747b
+   322.40ns INFO     cocotb.ascon_permute               Checking Permutation #098
+   322.40ns DEBUG    cocotb.ascon_permute                 Expected: 0x56e78e165343ab53a0d69b665dba8929cda835ea5cc5bd0867b62af8aeb962021c6fb579459ca351
+   322.40ns DEBUG    cocotb.ascon_permute                 Actual:   0x56e78e165343ab53a0d69b665dba8929cda835ea5cc5bd0867b62af8aeb962021c6fb579459ca351
+   325.50ns INFO     cocotb.ascon_permute               Checking Permutation #099
+   325.50ns DEBUG    cocotb.ascon_permute                 Expected: 0x8c4e36cf56a5b1fd1750440e3ded1cfa11e60610f99d7c1e4db89215298d047b29df0db44efc5c9
+   325.50ns DEBUG    cocotb.ascon_permute                 Actual:   0x8c4e36cf56a5b1fd1750440e3ded1cfa11e60610f99d7c1e4db89215298d047b29df0db44efc5c9
+   325.50ns INFO     cocotb.ascon_permute               Verified 100 permutations with 4-cycle throughput!
+   325.50ns INFO     cocotb.regression                  verify.ascon_test passed
+   325.50ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** verify.ascon_test              PASS         325.50           0.08       3849.25  **
+                                                        **************************************************************************************
+                                                        ** TESTS=1 PASS=1 FAIL=0 SKIP=0                325.50           0.09       3807.04  **
+                                                        **************************************************************************************
+FST info: dumpfile sim_build/ascon_permute.fst opened for output.
+make[1]: Leaving directory '/home/shu/Documents/Ascon/test/ascon'

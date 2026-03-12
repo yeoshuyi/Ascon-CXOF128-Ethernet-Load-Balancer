@@ -7,7 +7,7 @@ VERILOG_SOURCES += $(RTL_DIR)/ascon_permute.sv
 VERILOG_SOURCES += $(RTL_DIR)/ascon.sv
 
 TOPLEVEL = ascon
-MODULE = ascon
+MODULE = precompute
 
 export WAVES = 1
 
@@ -15,4 +15,4 @@ ifeq ($(SIM),icarus)
     PLUSARGS += -fst
 endif
 
-include $(shell cocotb-config --makefiles)/Makefile.sim
+include $(shell cocotb-config --makefiles)/Makefile2.sim

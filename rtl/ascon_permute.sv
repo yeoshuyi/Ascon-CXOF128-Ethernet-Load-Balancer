@@ -1,6 +1,9 @@
 module ascon_permute (
+    input logic clk,
+    input logic reset,
     input logic [319:0] state_in,
-    input logic [319:0] state_out
+    
+    output logic [319:0] state_out
 ); 
     localparam logic [12*8-1:0] ROUND_CONSTS = {
         8'hf0, 8'he1, 8'hd2, 8'hc3, 
@@ -8,33 +11,58 @@ module ascon_permute (
         8'h78, 8'h69, 8'h5a, 8'h4b
     };
 
-    logic [63:0] s0[0:12], s1[0:12], s2[0:12], s3[0:12], s4[0:12];
-    logic [63:0] r0_q4, r1_q4, r2_q4, r3_q4, r4_q4;
-    logic [63:0] r0_q8, r1_q8, r2_q8, r3_q8, r4_q8;
-    
-    assign {s0[0], s1[0], s2[0], s3[0], s4[0]} = state_in;
+    logic [63:0] s0[0:3], s1[0:3], s2[0:3], s3[0:3], s4[0:3];
+
+    // always_ff @(posedge clk) begin
+    //     if (reset) begin
+    //         {s0[0], s1[0], s2[0], s3[0], s4[0]} <= '0;
+    //     end else begin
+    //         {s0[0], s1[0], s2[0], s3[0], s4[0]} <= state_in;
+    //     end
+    // end
+
+    always_comb begin
+        {s0[0], s1[0], s2[0], s3[0], s4[0]} = state_in;
+    end
 
     genvar i;
     generate
-        for (i = 0; i < 12; i++) begin: gen_ascon_rounds
+        for (i = 0; i < 3; i++) begin
 
-            logic [63:0] cur_x0, cur_x1, cur_x2, cur_x3, cur_x4;
-
-            if (i == 4) begin //Round 4 uses Reg
-                assign {cur_x0, cur_x1, cur_x2, cur_x3, cur_x4} = {r0_q4, r1_q4, r2_q4, r3_q4, r4_q4};
-            end else if (i == 8) begin //Round 8 uses Reg
-                assign {cur_x0, cur_x1, cur_x2, cur_x3, cur_x4} = {r0_q8, r1_q8, r2_q8, r3_q8, r4_q8};
-            end else begin
-                assign {cur_x0, cur_x1, cur_x2, cur_x3, cur_x4} = {s0[i], s1[i], s2[i], s3[i], s4[i]};
+            logic [63:0]    n0_0, n0_1, n0_2, n0_3, n0_4, 
+                            n1_0, n1_1, n1_2, n1_3, n1_4, 
+                            n2_0, n2_1, n2_2, n2_3, n2_4,
+                            n3_0, n3_1, n3_2, n3_3, n3_4;
+            always_ff @(posedge clk) begin
+                if (reset) {s0[i+1], s1[i+1], s2[i+1], s3[i+1], s4[i+1]} <= '0;
+                else {s0[i+1], s1[i+1], s2[i+1], s3[i+1], s4[i+1]} <= {n3_0, n3_1, n3_2, n3_3, n3_4};
             end
 
-            ascon_round round_inst(
+            ascon_round round_inst0(
                 .x0(s0[i]), .x1(s1[i]), .x2(s2[i]), .x3(s3[i]), .x4(s4[i]),
-                .round_const(ROUND_CONSTS[(11-i)*8 +: 8]),
-                .y0(s0[i+1]), .y1(s1[i+1]), .y2(s2[i+1]), .y3(s3[i+1]), .y4(s4[i+1])
+                .round_const(ROUND_CONSTS[(11-(i*4))*8 +: 8]),
+                .y0(n0_0), .y1(n0_1), .y2(n0_2), .y3(n0_3), .y4(n0_4)
+            );
+
+            ascon_round round_inst1(
+                .x0(n0_0), .x1(n0_1), .x2(n0_2), .x3(n0_3), .x4(n0_4),
+                .round_const(ROUND_CONSTS[(11-(i*4+1))*8 +: 8]),
+                .y0(n1_0), .y1(n1_1), .y2(n1_2), .y3(n1_3), .y4(n1_4)
+            );
+
+            ascon_round round_inst2(
+                .x0(n1_0), .x1(n1_1), .x2(n1_2), .x3(n1_3), .x4(n1_4),
+                .round_const(ROUND_CONSTS[(11-(i*4+2))*8 +: 8]),
+                .y0(n2_0), .y1(n2_1), .y2(n2_2), .y3(n2_3), .y4(n2_4)
+            );
+
+            ascon_round round_inst3(
+                .x0(n2_0), .x1(n2_1), .x2(n2_2), .x3(n2_3), .x4(n2_4),
+                .round_const(ROUND_CONSTS[(11-(i*4+3))*8 +: 8]),
+                .y0(n3_0), .y1(n3_1), .y2(n3_2), .y3(n3_3), .y4(n3_4)
             );
         end
     endgenerate
 
-    assign state_out = {s0[12], s1[12], s2[12], s3[12], s4[12]};
+    assign state_out = {s0[3], s1[3], s2[3], s3[3], s4[3]};
 endmodule
