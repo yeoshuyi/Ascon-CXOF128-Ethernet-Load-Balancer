@@ -4,9 +4,9 @@ TOPLEVEL_LANG ?= verilog
 RTL_DIR = $(PWD)/../../rtl
 VERILOG_SOURCES += $(RTL_DIR)/ascon_round.sv
 VERILOG_SOURCES += $(RTL_DIR)/ascon_permute.sv
-VERILOG_SOURCES += $(RTL_DIR)/ascon_xof.sv
+VERILOG_SOURCES += $(RTL_DIR)/ascon_cxof128.sv
 
-TOPLEVEL = ascon_xof
+TOPLEVEL = ascon_cxof128
 
 MODULE = verify
 

@@ -45,7 +45,7 @@ def rotr(val: int, r: int) -> int:
 
 
 @cocotb.test()
-async def ascon_xof(dut):
+async def ascon_cxof(dut):
     clock = Clock(dut.clk, 8, unit="ns")
     cocotb.start_soon(clock.start())
 
@@ -60,7 +60,9 @@ async def ascon_xof(dut):
 
     #tuple_val = random.getrandbits(104)
     tuple_val = 0x000102030405060708090A0B0C
+    secret_key_val = 0x734abc2033060120
     dut.tuple_in.value = tuple_val
+    dut.secret_key.value = secret_key_val
     dut.start.value = 1
     await RisingEdge(dut.clk)
     dut.start.value = 0
@@ -76,21 +78,29 @@ async def ascon_xof(dut):
         actual_digest = dut.digest.value.to_unsigned()
 
         #Python Calculation
-        b0 = (tuple_val >> 40) & 0xFFFFFFFFFFFFFFFF
+        b0 = 0x0000000000000040 #64 Bit Long
+        b1 = secret_key_val #Secret Key
+        b2 = (tuple_val >> 40) & 0xFFFFFFFFFFFFFFFF
         low_40_bits = tuple_val & 0xFFFFFFFFFF
-        b1 = (low_40_bits << 24) | 0x800000 
+        b3 = (low_40_bits << 24) | 0x800000 
+        
         s = expected_init.copy()
         s[0] ^= b0
         s = ascon_permutate(s)
         s[0] ^= b1
         s = ascon_permutate(s)
+        s[0] ^= b2
+        s = ascon_permutate(s)
+        s[0] ^= b3
+        s = ascon_permutate(s)
         expected_digest = s[0]
 
         dut._log.info(f"Checking Permutation #{i}")
-        dut._log.debug(f"  Message: {hex(tuple_val)}")
-        dut._log.debug(f"  Expected: {hex(expected_digest)}")
-        dut._log.debug(f"  Actual:   {hex(actual_digest)}")
-        dut._log.debug(f"  Latency:   {cycles_waited} cycles")
+        dut._log.debug(f"  Message:    {hex(tuple_val)}")
+        dut._log.debug(f"  Secret Key: {hex(secret_key_val)}")
+        dut._log.debug(f"  Expected:   {hex(expected_digest)}")
+        dut._log.debug(f"  Actual:     {hex(actual_digest)}")
+        dut._log.debug(f"  Latency:    {cycles_waited} cycles")
         
         assert actual_digest == expected_digest, (
             f"Match Failed at Trial {i}\n"
@@ -101,7 +111,9 @@ async def ascon_xof(dut):
         )
 
         tuple_val = random.getrandbits(104)
+        secret_key_val = random.getrandbits(64)
         dut.tuple_in.value = tuple_val
+        dut.secret_key.value = secret_key_val
 
         dut.start.value = 1
         await RisingEdge(dut.clk)
