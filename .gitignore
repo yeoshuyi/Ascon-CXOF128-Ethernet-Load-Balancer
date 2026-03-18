@@ -21,3 +21,6 @@ results.xml
 # System specific
 .DS_Store
 Thumbs.db
+
+#Extra
+/old
