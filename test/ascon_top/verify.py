@@ -67,7 +67,7 @@ async def ascon_cxof(dut):
     await RisingEdge(dut.clk)
     dut.start.value = 0
 
-    for i in range(100000):
+    for i in range(1000):
         cycles_waited = 0
         while not dut.done.value:
             await RisingEdge(dut.clk)

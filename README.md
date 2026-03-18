@@ -9,7 +9,7 @@ NIST Specification: https://csrc.nist.gov/pubs/sp/800/232/final
 
 ## Highlights
 
-* Ascon-CXOF128 core with 13-cycle deterministic latency @ 125Mhz.
+* Ascon-CXOF128 core with 10-cycle deterministic latency @ 125Mhz.
 * Scalable to meet 25GbE line rate hashing of Ethernet 5-tuple.
 
 ## Introduction

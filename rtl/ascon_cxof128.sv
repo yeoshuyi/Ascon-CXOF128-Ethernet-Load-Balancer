@@ -9,7 +9,8 @@ module ascon_cxof128 (
     output logic done
 );
 
-    localparam logic [319:0] INIT_PRECOMPUTE = 320'hb57e273b814cd4162b51042562ae242066a3a7768ddf22185aad0a7a8153650c4f3e0e32539493b6;
+    localparam logic [319:0] INIT_PRECOMPUTE = 320'h2a366da5d7399dbee99a8f0409b39df6d3a1e1c00125f0cebd610dad83bb334db584feb1663b4f6e;
+    //INIT_PRECOMPUTE = 320'hb57e273b814cd4162b51042562ae242066a3a7768ddf22185aad0a7a8153650c4f3e0e32539493b6;
     localparam ROUND_DELAY = 2;
 
     typedef enum logic [2:0] { //1-Hot
@@ -25,11 +26,11 @@ module ascon_cxof128 (
     logic [2:0] delay_cnt;
     logic [2:0] round_cnt;
     
-    logic [63:0] block [0:3];
-    assign block[0] = 64'h0000000000000040;
-    assign block[1] = secret_key; //Secret Key
-    assign block[2] = tuple_in[103:40];
-    assign block[3] = {tuple_in[39:0], 1'b1, 23'h0};
+    logic [63:0] block [0:2];
+    //assign block[0] = 64'h0000000000000040;
+    assign block[0] = secret_key; //Secret Key
+    assign block[1] = tuple_in[103:40];
+    assign block[2] = {tuple_in[39:0], 1'b1, 23'h0};
 
     
     ascon_permute ascon_core (
@@ -63,11 +64,11 @@ module ascon_cxof128 (
                         state_reg <= perm_out;
                         delay_cnt <= 0;
 
-                        if (round_cnt == 2) begin
+                        if (round_cnt == 1) begin
                             state <= SQUEEZE;
                             round_cnt <= 0;
                         end else begin
-                            round_cnt <= round_cnt + 1;
+                            round_cnt <= 1;
                         end
                     end else begin
                         delay_cnt <= delay_cnt + 1;
@@ -94,21 +95,42 @@ module ascon_cxof128 (
         end
     end
 
+    // always_comb begin
+    //     if  (state == IDLE ||
+    //         (state == ABSORB && delay_cnt < ROUND_DELAY && round_cnt == 0) ||
+    //         (state == SQUEEZE && delay_cnt == ROUND_DELAY && start == 1)) begin
+    //         perm_in = INIT_PRECOMPUTE ^ {block[0], 256'b0};
+    //     end else if (state == ABSORB && delay_cnt == ROUND_DELAY) begin
+    //         if (round_cnt == 1) begin
+    //             perm_in = perm_out;
+    //         end else begin
+    //             perm_in = perm_out ^ {block[1], 256'b0};
+    //         end
+    //     end else if (state == ABSORB) begin
+    //         perm_in = state_reg ^ {block[round_cnt], 256'b0};
+    //     end else begin
+    //         perm_in = state_reg ^ {block[2], 256'b0};
+    //     end
+    // end
+
+    logic [319:0] base_val;
+    logic [63:0]  data_val;
+
     always_comb begin
-        if  (state == IDLE ||
-            (state == ABSORB && delay_cnt < ROUND_DELAY && round_cnt == 0) ||
-            (state == SQUEEZE && delay_cnt == ROUND_DELAY && start == 1)) begin
-            perm_in = INIT_PRECOMPUTE ^ {block[0], 256'b0};
-        end else if (state == ABSORB && delay_cnt == ROUND_DELAY) begin
-            if (round_cnt < 2) begin
-                perm_in = perm_out ^ {block[round_cnt + 1], 256'b0};
-            end else begin
-                perm_in = perm_out;
-            end
-        end else if (state == ABSORB) begin
-            perm_in = state_reg ^ {block[round_cnt], 256'b0};
-        end else begin
-            perm_in = state_reg ^ {block[3], 256'b0};
+        if (state == ABSORB && delay_cnt == ROUND_DELAY) begin
+            base_val = perm_out;
+            data_val = (round_cnt == 1) ? 64'h0 : block[1];
         end
+        else if (state == IDLE || 
+                (state == ABSORB && round_cnt == 0) || 
+                (state == SQUEEZE && delay_cnt == ROUND_DELAY && start)) begin
+            base_val = INIT_PRECOMPUTE;
+            data_val = block[0];
+        end
+        else begin
+            base_val = state_reg;
+            data_val = (state == ABSORB) ? block[round_cnt] : block[2];
+        end
+        perm_in = base_val ^ {data_val, 256'b0};
     end
 endmodule
