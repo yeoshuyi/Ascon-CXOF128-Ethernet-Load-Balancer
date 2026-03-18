@@ -9,6 +9,7 @@
 **/*.vcd
 **/*.fst
 **/*.vvp
+**/hd_visuals/
 results.xml
 
 #Py
@@ -23,4 +24,4 @@ results.xml
 Thumbs.db
 
 #Extra
-/old
+/old/
